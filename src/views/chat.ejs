@@ -1,0 +1,54 @@
+<%- include('parts/header') %>
+<% var error, id, messages  %>
+
+<section>
+  <div class="container">
+    <% if(error) {%>
+      <div class="alert alert-danger"><%= error %> </div>
+    <% } %>
+    <div class=" ms-4">
+      <form action="/chat" method="POST" class="w-100 chat-form">
+        <div class="form-floating">
+          <textarea class="form-control" name="message" placeholder="Chatting" id="floatingTextarea2"  style="height: 150px"></textarea>
+          <label for="floatingTextarea2">Messages</label>
+        </div>
+        <div class="input-group mt-4">
+          <button class="btn btn-primary w-100" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <ul class="messages list-unstyled">
+      <% for(let message of messages) {%>
+        <% if(id == message?.user?.id) {%>
+          <li class="send my-3">
+            <div class="card w-50">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <a href="/user/<%= message.user?.id %> " class="fs-4 m-0 p-0"><strong> <%= message.user?.name %> </strong></a>
+                <time><%= message.time %> </time>
+              </div>
+              <div class="card-body">
+                <%= message.body %>
+              </div>
+            </div>
+          </li>
+
+        <% }else{%>
+          <li class="send my-3">
+            <div class="card w-50 ms-auto">
+              <div class="card-header d-flex flex-row-reverse justify-content-between align-items-center">
+                <a href="/user/<%= message.user?.id %> " class="fs-4 m-0 p-0"><strong> <%= message.user?.name %> </strong></a>
+                <time><%= message.time %> </time>
+              </div>
+              <div class="card-body text-end">
+                <time><%= message.body %> </time>
+              </div>
+            </div>
+          </li>
+          <% } %>
+      <% } %>
+
+    </ul>
+  </div>
+</section>
+<%- include('parts/footer') %>

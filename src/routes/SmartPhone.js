@@ -5,15 +5,15 @@ const users = require('../data')
 const router = Router()
 
 router.get('/', (req, res) =>{
-  res.render('index', {
-    title: 'Homepage',
-    path: "/",
+  res.render('phones', {
+    title: 'Smart Phones',
+    path: "/phones",
     ...req.user
 
   })
 })
 
 module.exports = {
-  path: '/',
+  path: '/phones',
   router: router
 }

@@ -1,15 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<%- include('parts/header') %>
+<% var name %>
+<section>
+  <div class="container mt-5">
+    <h1 class="text-center">Welcome <%= name ? name + ". Here is our chat" : "Guest. If you have any questions, you should registrate in order to send message"  %> for our online shop </h1>
+    <ul class=" d-flex list-unstyled  rounded mb-2 mb-lg-0 bg-success">
+      <li class="nav-item mx-auto">
+        <a class="nav-link text-white aria-current=" page" href="/household">Household Items</a>
+      </li>
+      <li class="nav-item mx-auto">
+        <a class="nav-link text-white " aria-current="page" href="/phones">Smart phones</a>
+      </li>
+      <li class="nav-item mx-auto">
+        <a class="nav-link text-white " aria-current="page" href="/cars">Car Market</a>
+      </li>
+      <li class="nav-item mx-auto pe-3">
+        <a class="nav-link text-white " aria-current="page" href="/references">References</a>
+      </li>
 
-  <h1>Hello</h1>
+      <li class="m-2">
+        <% if(name) {%>
+        <a class="text-light" href="/chat">Send questions</a>
+        <% } %>
+      </li>
+
+    </ul>
+
+    <div class="row w-100  mt-3 ms-0 justify-content-between">
+
+      <div id="carouselExampleInterval" class="col-7 carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src="https://picsum.photos/2000?random=1" class="d-block mx-start w-100" height="300" width="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://picsum.photos/2000?random=2" class="d-block mx-start w-100" height="300" width="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="https://picsum.photos/2000?random=3" class="d-block mx-start w-100" height="300" width="300" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="col-4 circle-rounded">
+        <img src="https://picsum.photos/2000?random=4" height="300" width="300" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
 
 
-</body>
-</html>
+<%- include('parts/footer') %>
